@@ -1,0 +1,6 @@
+tile.underpressure.chamberBlock.name=Infusion Chamber Block
+tile.underpressure.infusionBlock.name=Infusion Block
+tile.underpressure.chamberGlass.name=Infusion Chamber Glass
+tile.underpressure.essenceCollectorBlock.name=Essence Collector
+item.underpressure.readerItem.name=Essence Reader
+item.underpressure.infusionItemBlock.name=Infusion Block
