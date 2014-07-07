@@ -11,4 +11,5 @@ public class Textures {
     public static String INFUSION_BLOCK_ACTIVE = "underpressure:mainChamberActive";
     public static String TRANSPARENT_TEXTURE = "underpressure:airTexture";
     public static String PEDESTAL_ICON = "underpressure:textures/items/pedestal.png";
+    public static String OBSIDIAN_TEXTURE = "underpressure:textures/blocks/obsidian.png";
 }

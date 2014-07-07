@@ -192,7 +192,7 @@ public class ChamberTile extends BasicTileEntity implements IInventory, IEssence
         }
         if (this.cooldown<=0){
             checkBlocks();
-            cooldown=150;
+            cooldown=100;
         }
 
         if (this.essence>this.maxEssence){
@@ -207,7 +207,6 @@ public class ChamberTile extends BasicTileEntity implements IInventory, IEssence
                        this.slots[0]= new ItemStack(InfusionRegistry.getOutput(this.getStackInSlot(0).getItem()));
                        this.work=0;
                    }
-                   worldObj.spawnParticle("fire", this.xCoord+Math.random(), this.yCoord+Math.random(), this.zCoord+Math.random(), 1, 1, 1);
                }
             }
         }

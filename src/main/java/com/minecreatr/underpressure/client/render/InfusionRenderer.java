@@ -2,6 +2,7 @@ package com.minecreatr.underpressure.client.render;
 
 import com.minecreatr.underpressure.Infusion;
 import com.minecreatr.underpressure.client.model.ModelPedestal;
+import com.minecreatr.underpressure.reference.Textures;
 import com.minecreatr.underpressure.tile.ChamberTile;
 import net.minecraft.block.BlockBrewingStand;
 import net.minecraft.client.Minecraft;
@@ -25,7 +26,7 @@ public class InfusionRenderer extends TileEntitySpecialRenderer{
     RenderItem renderItem = new RenderItem();
     EntityItem item;
     private final ModelPedestal model;
-    ResourceLocation brick = new ResourceLocation("underpressure:textures/blocks/chamberBlock.png");
+    ResourceLocation brick = new ResourceLocation(Textures.OBSIDIAN_TEXTURE);
 
     public InfusionRenderer(){
         model = new ModelPedestal();
@@ -55,6 +56,7 @@ public class InfusionRenderer extends TileEntitySpecialRenderer{
                 //Tell it to stop rendering for both the PushMatrix's
                 GL11.glPopMatrix();
                 GL11.glPopMatrix();
+                tile.getWorldObj().spawnParticle("fire", tile.xCoord+Math.random(), tile.yCoord+.25, tile.zCoord+Math.random(), 1, 1, 1);
             }
             else {
                 GL11.glTranslatef((float) x + 0.5F, (float) y+0.2f, (float) z + 0.5F);
