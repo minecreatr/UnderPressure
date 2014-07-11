@@ -1,6 +1,9 @@
 package com.minecreatr.underpressure.Items;
 
+import com.minecreatr.underpressure.ModWorldData;
+import com.minecreatr.underpressure.UnderPressure;
 import com.minecreatr.underpressure.collector.IEssenceTile;
+import com.minecreatr.underpressure.util.BlockData;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -16,8 +19,8 @@ public class ReaderItem extends Item{
 
     public ReaderItem(){
         setMaxStackSize(1);
-        setCreativeTab(CreativeTabs.tabMisc);
         setUnlocalizedName(ModItems.READER_ITEM_NAME);
+        setCreativeTab(UnderPressure.tab);
     }
     @Override
     public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int par7, float par8, float par9, float par10){

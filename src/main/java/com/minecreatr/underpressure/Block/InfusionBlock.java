@@ -24,7 +24,6 @@ public class InfusionBlock extends BasicBlock{
 
     public InfusionBlock(){
         super(Material.rock, ModBlocks.INFUSION_BLOCK_NAME);
-        this.setCreativeTab(CreativeTabs.tabBlock);
         this.setBlockTextureName(Textures.TRANSPARENT_TEXTURE);
     }
 

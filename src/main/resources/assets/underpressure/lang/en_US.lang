@@ -4,3 +4,5 @@ tile.underpressure.chamberGlass.name=Infusion Chamber Glass
 tile.underpressure.essenceCollectorBlock.name=Essence Collector
 item.underpressure.readerItem.name=Essence Reader
 item.underpressure.infusionItemBlock.name=Infusion Block
+item.underpressure.debugItemName.name=Debug Item
+itemGroup.underpressure.tabDefualt=Under Pressure

@@ -15,7 +15,6 @@ public class EssenceCollectorBlock extends BasicBlock{
 
     public EssenceCollectorBlock(){
         super(Material.rock, ModBlocks.ESSENCE_COLLECTOR_BLOCK_NAME);
-        this.setCreativeTab(CreativeTabs.tabBlock);
         this.setBlockTextureName(Textures.INFUSION_BLOCK_ACTIVE);
     }
 

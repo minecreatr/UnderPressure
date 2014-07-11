@@ -27,7 +27,6 @@ public class ChamberBlock extends BasicBlock{
     public ChamberBlock(){
         super(Material.rock, ModBlocks.CHAMBER_BLOCK_NAME);
         this.setBlockTextureName(Textures.CHAMBER_BLOCK_TEXTURE);
-        this.setCreativeTab(CreativeTabs.tabBlock);
     }
 
 

@@ -2,6 +2,7 @@ package com.minecreatr.underpressure.tile;
 
 import com.minecreatr.underpressure.collector.IEssenceProvider;
 import com.minecreatr.underpressure.collector.IEssenceTile;
+import com.minecreatr.underpressure.util.LocHelper;
 import net.minecraft.nbt.NBTTagCompound;
 
 /**
@@ -11,6 +12,7 @@ public class EssenseCollectorTile extends BasicTileEntity implements IEssenceTil
 
     private int essence;
     private int maxEssence;
+    private float buildBuffer;
 
     public EssenseCollectorTile(int maxEssence){
         super();
@@ -41,6 +43,7 @@ public class EssenseCollectorTile extends BasicTileEntity implements IEssenceTil
     public void writeData(NBTTagCompound compound) {
         compound.setInteger("essence", this.essence);
         compound.setInteger("maxEssence", this.maxEssence);
+        compound.setFloat("buildBuffer", buildBuffer);
     }
 
     @Override
@@ -51,11 +54,24 @@ public class EssenseCollectorTile extends BasicTileEntity implements IEssenceTil
         if (compound.hasKey("maxEssence")){
             this.maxEssence=compound.getInteger("maxEssence");
         }
+        if (compound.hasKey("buildBuffer")){
+            this.buildBuffer=compound.getFloat("buildBuffer");
+        }
     }
 
     public void updateEntity(){
+        if (buildBuffer>=1){
+            buildBuffer--;
+            essence++;
+        }
         if (this.essence<this.maxEssence){
-            this.essence=this.essence+1;
+            if(LocHelper.getClosestPortal(worldObj, xCoord, yCoord, zCoord)!=null) {
+                if (LocHelper.getDistanceFromPoint(xCoord, yCoord, zCoord, LocHelper.getClosestPortal(worldObj, xCoord, yCoord, zCoord))<=11) {
+                    int dist = LocHelper.getDistanceFromPoint(xCoord, yCoord, zCoord, LocHelper.getClosestPortal(worldObj, xCoord, yCoord, zCoord));
+                    float toAdd = 1-(dist/11);
+                    buildBuffer=buildBuffer+toAdd;
+                }
+            }
         }
     }
 

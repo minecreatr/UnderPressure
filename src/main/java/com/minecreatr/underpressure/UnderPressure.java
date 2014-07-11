@@ -2,6 +2,7 @@ package com.minecreatr.underpressure;
 
 import com.minecreatr.underpressure.Block.EssenceCollectorBlock;
 import com.minecreatr.underpressure.Block.ModBlocks;
+import com.minecreatr.underpressure.Commands.CommandListPortals;
 import com.minecreatr.underpressure.Items.ModItems;
 import com.minecreatr.underpressure.reference.ExternalMods;
 import com.minecreatr.underpressure.tile.ChamberTile;
@@ -12,7 +13,10 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.command.ICommand;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 
 /**
@@ -23,6 +27,7 @@ import net.minecraft.init.Items;
 public class UnderPressure {
 
     public boolean isBuildcraftEnabled;
+    public static CreativeTabs tab;
 
     @Mod.Instance
     public static UnderPressure instance = new UnderPressure();
@@ -42,6 +47,7 @@ public class UnderPressure {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event){
+        tab = new UnderPressureCreativeTab("underpressure.tabDefualt");
         ModBlocks.init();
         ModItems.init();
         GameRegistry.registerTileEntity(ChamberTile.class, "underpressure.chamberTile");
@@ -52,5 +58,10 @@ public class UnderPressure {
     @Mod.EventHandler
     public void init(FMLInitializationEvent event){
         proxy.registerRenderers();
+    }
+
+    @Mod.EventHandler
+    public void serverStarting(FMLServerStartingEvent event){
+        event.registerServerCommand(new CommandListPortals());
     }
 }
